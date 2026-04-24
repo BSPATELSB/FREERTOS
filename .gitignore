@@ -1,0 +1,64 @@
+# =========================
+# Build folder
+# =========================
+build/
+*.bin
+*.elf
+*.map
+
+# =========================
+# ESP-IDF specific
+# =========================
+sdkconfig
+sdkconfig.old
+#sdkconfig.defaults
+
+# Partition table
+partitions.csv
+
+# =========================
+# CMake / Ninja
+# =========================
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+build.ninja
+.ninja_log
+.ninja_deps
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# VS Code
+# =========================
+.vscode/
+
+# =========================
+# Eclipse
+# =========================
+.project
+.cproject
+.settings/
+
+# =========================
+# OS generated files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Python (ESP-IDF uses Python)
+# =========================
+__pycache__/
+*.pyc
+
+# =========================
+# Temporary files
+# =========================
+*.swp
+*.swo
+*~
