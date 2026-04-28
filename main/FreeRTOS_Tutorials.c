@@ -13,28 +13,35 @@ void LED_INIT()
 
 void myTask(void *pvParameters)
 {
-    int counter= 0;
     while (1)
     {
-        printf("LED ON counter: %d\n",counter++);
-        gpio_set_level(LED_GPIO, 1);   // LED ON
+        printf("First Task is running......\n");
         vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+}
 
-        printf("LED is OFF...\n");
-        gpio_set_level(LED_GPIO, 0);   // LED OFF
+void ThirdTask(void *pvParameters)
+{
+    while (1)
+    {
+        printf("Third Task is running......\n");
         vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+}
 
-        if(counter >= 10)
-        {
-            printf("Task has been deleted\n");
-            vTaskDelete(NULL);
-        }
-        //vTaskDelay(pdMS_TO_TICKS(1000));
+void SecondTask(void *pvParameters)
+{
+    while (1)
+    {
+        printf("Second Task is running......\n");
+        vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }
 
 void app_main(void)
 {
-    LED_INIT();
+    //LED_INIT();
+    xTaskCreate(SecondTask, "secondTask",2048,NULL,4,NULL);
+    xTaskCreate(ThirdTask, "ThirdTask",2048,NULL,3,NULL);
 	xTaskCreate(myTask,"Bhaumik",2048,NULL,5,NULL);
 }
